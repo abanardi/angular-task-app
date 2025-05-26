@@ -12,6 +12,7 @@ import { AsyncPipe } from '@angular/common';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 interface UserDataSource {
   id: string;
   name: string;
@@ -26,7 +27,13 @@ interface UserDataSource {
 @Component({
   selector: 'app-user-table',
   standalone: true,
-  imports: [AsyncPipe, MatTableModule, MatSortModule, DatePipe],
+  imports: [
+    AsyncPipe,
+    MatTableModule,
+    MatSortModule,
+    DatePipe,
+    MatPaginatorModule,
+  ],
   providers: [DatePipe],
   templateUrl: './user-table.component.html',
   styleUrl: './user-table.component.scss',
@@ -47,6 +54,7 @@ export class UserTableComponent implements OnInit, OnDestroy, AfterViewInit {
   dataSource = new MatTableDataSource<UserDataSource>();
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private usersService: UsersService, private datePipe: DatePipe) {}
 
@@ -71,6 +79,8 @@ export class UserTableComponent implements OnInit, OnDestroy, AfterViewInit {
         return item[property as keyof UserDataSource] as string;
       }
     };
+
+    this.dataSource.paginator = this.paginator;
   }
 
   getUsers() {
