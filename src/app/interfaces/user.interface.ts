@@ -5,4 +5,5 @@ export interface User {
   remainingTasks: number;
   description: string;
   team: string;
+  dateStarted: string;
 }
