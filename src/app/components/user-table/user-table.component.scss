@@ -1,0 +1,14 @@
+// .data-table {
+//   height: 100%;
+//   width: 95%;
+//   margin-left: 2.5%;
+//   margin-right: 2.5%;
+//   overflow: scroll;
+// }
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+}

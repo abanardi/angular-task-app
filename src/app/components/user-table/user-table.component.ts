@@ -1,8 +1,10 @@
 import {
   AfterViewInit,
   Component,
+  OnChanges,
   OnDestroy,
   OnInit,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { UsersService } from '../../services/users.service';
@@ -13,6 +15,7 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { Input } from '@angular/core';
 interface UserDataSource {
   id: string;
   name: string;
@@ -38,7 +41,10 @@ interface UserDataSource {
   templateUrl: './user-table.component.html',
   styleUrl: './user-table.component.scss',
 })
-export class UserTableComponent implements OnInit, OnDestroy, AfterViewInit {
+export class UserTableComponent
+  implements OnInit, OnDestroy, AfterViewInit, OnChanges
+{
+  @Input() globalFilter: string;
   componentDestroyed$: Subject<boolean> = new Subject();
 
   displayedColumns = [
@@ -60,6 +66,12 @@ export class UserTableComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onSort(sort: Sort): void {
     console.log(sort);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      this.dataSource.filter = this.globalFilter;
+    }
   }
 
   ngOnInit(): void {
