@@ -69,7 +69,7 @@ export class UserTableComponent
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes) {
+    if (changes.globalFilter) {
       this.dataSource.filter = this.globalFilter;
     }
   }
@@ -127,6 +127,10 @@ export class UserTableComponent
 
         this.dataSource.data = usersDataSource;
       });
+  }
+
+  clickRow(row: UserDataSource): void {
+    console.log(row);
   }
 
   ngOnDestroy(): void {

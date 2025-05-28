@@ -1,14 +1,25 @@
-// .data-table {
-//   height: 100%;
-//   width: 95%;
-//   margin-left: 2.5%;
-//   margin-right: 2.5%;
-//   overflow: scroll;
-// }
+.data-table {
+  overflow: auto;
+  height: 100%;
+}
 
 table {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  min-width: 500px;
+}
+
+.shit {
+  height: 100%;
+  position: relative;
+}
+
+// .mat-header-row, .mat-row {
+//   min-height: 30px;
+// }
+
+mat-paginator {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }

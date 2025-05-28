@@ -1,7 +1,28 @@
 .table-container {
   display: flex;
   flex-direction: column;
-  //   justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
   height: 100%;
   width: 100%;
+}
+
+.table-wrapper {
+  background-color: (#3c3c46);
+  width: 75%;
+  height: 75%;
+  //   overflow: hidden;
+}
+
+.input-field {
+  display: flex;
+  width: 75%;
+  //   background-color: red;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+mat-form-field {
+  width: 300px;
 }
