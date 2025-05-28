@@ -18,8 +18,22 @@ table {
 //   min-height: 30px;
 // }
 
+.mat-mdc-row:hover {
+  background-color: rgb(247, 246, 246);
+  cursor: pointer;
+}
+
+.mat-mdc-header-row {
+  background-color: #ffffff;
+}
+
+.mat-mdc-row {
+  background-color: #ffffff;
+}
+
 mat-paginator {
   position: absolute;
   bottom: 0px;
   width: 100%;
+  background-color: #ffffff;
 }
