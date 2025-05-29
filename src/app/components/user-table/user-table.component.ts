@@ -26,17 +26,12 @@ interface UserDataSource {
   dateStarted: string;
   userResponse: User;
 }
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-table',
   standalone: true,
-  imports: [
-    AsyncPipe,
-    MatTableModule,
-    MatSortModule,
-    DatePipe,
-    MatPaginatorModule,
-  ],
+  imports: [AsyncPipe, MatTableModule, MatSortModule, MatPaginatorModule],
   providers: [DatePipe],
   templateUrl: './user-table.component.html',
   styleUrl: './user-table.component.scss',
@@ -62,7 +57,11 @@ export class UserTableComponent
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private usersService: UsersService, private datePipe: DatePipe) {}
+  constructor(
+    private usersService: UsersService,
+    private datePipe: DatePipe,
+    private router: Router
+  ) {}
 
   onSort(sort: Sort): void {
     console.log(sort);
@@ -130,7 +129,7 @@ export class UserTableComponent
   }
 
   clickRow(row: UserDataSource): void {
-    console.log(row);
+    this.router.navigate(['/tasks']);
   }
 
   ngOnDestroy(): void {
