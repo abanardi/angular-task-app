@@ -129,7 +129,9 @@ export class UserTableComponent
   }
 
   clickRow(row: UserDataSource): void {
-    this.router.navigate(['/tasks']);
+    const userId = row.id;
+    const childRoute = 'tasks/' + userId;
+    this.router.navigate([childRoute]);
   }
 
   ngOnDestroy(): void {

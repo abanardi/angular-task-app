@@ -6,5 +6,9 @@ import { TasksPageComponent } from './components/tasks-page/tasks-page.component
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'users', component: UsersPageComponent },
-  { path: 'tasks', component: TasksPageComponent },
+  {
+    path: 'tasks',
+    component: TasksPageComponent,
+    children: [{ path: '**', component: TasksPageComponent }],
+  },
 ];
