@@ -16,6 +16,8 @@ import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 interface UserDataSource {
   id: string;
   name: string;
@@ -26,7 +28,12 @@ interface UserDataSource {
   dateStarted: string;
   userResponse: User;
 }
-import { Router } from '@angular/router';
+
+interface queryParams {
+  filter: string;
+  description: string;
+  team: string;
+}
 
 @Component({
   selector: 'app-user-table',
@@ -92,6 +99,31 @@ export class UserTableComponent
     };
 
     this.dataSource.paginator = this.paginator;
+
+    this.dataSource.filterPredicate = (
+      data: UserDataSource,
+      filter: string
+    ) => {
+      const dummyString = 'filter=andrew&description=developer';
+      const extractedParams = dummyString.split('&');
+
+      // Setting up filters
+      const filterString = filter.toString().toLowerCase();
+
+      // Checking other filters
+
+      // Checking global filter
+      for (const dataEntry of Object.keys(data)) {
+        const dataToCheck = data[dataEntry as keyof UserDataSource]
+          .toString()
+          .toLowerCase();
+
+        if (dataToCheck.includes(filterString)) {
+          return true;
+        }
+      }
+      return false;
+    };
   }
 
   getUsers() {
