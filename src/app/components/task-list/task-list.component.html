@@ -1,5 +1,5 @@
 <div class="task-list-container">
-  @for(task of taskList; track task){
+  @for(task of (userTasks | async); track task){
   <app-task-card [task]="task"></app-task-card>
 
   }
