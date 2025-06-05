@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCard } from '@angular/material/card';
+import { Input } from '@angular/core';
+import { Task } from '../../interfaces/task.interface';
 
 @Component({
   selector: 'app-task-card',
@@ -8,4 +10,6 @@ import { MatCard } from '@angular/material/card';
   templateUrl: './task-card.component.html',
   styleUrl: './task-card.component.scss',
 })
-export class TaskCardComponent {}
+export class TaskCardComponent {
+  @Input() task: Task;
+}

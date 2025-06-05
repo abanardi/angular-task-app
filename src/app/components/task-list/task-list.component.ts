@@ -3,6 +3,8 @@ import { TaskCardComponent } from '../task-card/task-card.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Task } from '../../interfaces/task.interface';
+import { TASKS } from '../../mock-data/TASKS';
 
 @Component({
   selector: 'app-task-list',
@@ -16,4 +18,6 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss',
 })
-export class TaskListComponent {}
+export class TaskListComponent {
+  taskList = TASKS;
+}
