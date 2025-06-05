@@ -1,0 +1,15 @@
+.tasks-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  height: 100%;
+  width: 100%;
+}
+
+.task-list-wrapper{
+  width: 50%;
+  height: 75%;
+  // background-color: blue;
+}
