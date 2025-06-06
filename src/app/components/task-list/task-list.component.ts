@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 import { UserTaskListService } from '../../services/user-task-list.service';
 import { OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-task-list',
@@ -24,14 +25,19 @@ import { AsyncPipe } from '@angular/common';
 })
 export class TaskListComponent implements OnInit {
   userTasks: Observable<Task[]> = of([]);
+  userId: any = '';
 
-  constructor(private userTaskListService: UserTaskListService) {}
+  constructor(
+    private userTaskListService: UserTaskListService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   getUserTasks() {
     this.userTasks = this.userTaskListService.getTasks();
   }
 
   ngOnInit(): void {
+    this.userId = this.activatedRoute.snapshot.firstChild;
     this.getUserTasks();
   }
 }
