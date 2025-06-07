@@ -21,10 +21,15 @@
   display: flex;
   width: 75%;
   // background-color: red;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 mat-form-field {
   width: 300px;
+}
+
+button {
+  margin-right: 1%;
 }

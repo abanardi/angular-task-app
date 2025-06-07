@@ -17,6 +17,8 @@ import { DatePipe } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AddUserDialogComponent } from '../user-action-dialogs/add-user-dialog/add-user-dialog.component';
 
 interface UserDataSource {
   id: string;
@@ -38,7 +40,13 @@ interface queryParams {
 @Component({
   selector: 'app-user-table',
   standalone: true,
-  imports: [AsyncPipe, MatTableModule, MatSortModule, MatPaginatorModule],
+  imports: [
+    AsyncPipe,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    AddUserDialogComponent,
+  ],
   providers: [DatePipe],
   templateUrl: './user-table.component.html',
   styleUrl: './user-table.component.scss',
@@ -67,8 +75,13 @@ export class UserTableComponent
   constructor(
     private usersService: UsersService,
     private datePipe: DatePipe,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
+
+  openDialog() {
+    this.dialog.open(AddUserDialogComponent);
+  }
 
   onSort(sort: Sort): void {
     console.log(sort);
