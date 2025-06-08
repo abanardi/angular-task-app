@@ -32,7 +32,7 @@ export class UsersPageComponent {
 
   openDialog() {
     this.dialog.open(AddUserDialogComponent, {
-      height: '75vh',
+      height: '80vh',
       maxWidth: '100vw',
     });
   }
