@@ -22,6 +22,7 @@ import { AddUserDialogComponent } from '../user-action-dialogs/add-user-dialog/a
 })
 export class UsersPageComponent {
   globalFilter: string;
+  
 
   constructor(private dialog: MatDialog) {}
 
@@ -31,9 +32,14 @@ export class UsersPageComponent {
   }
 
   openDialog() {
-    this.dialog.open(AddUserDialogComponent, {
+    const dialogRef = this.dialog.open(AddUserDialogComponent, {
       height: '80vh',
       maxWidth: '100vw',
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      console.log('Closed dialog');
+      console.log(res);
     });
   }
 }

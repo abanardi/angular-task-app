@@ -4,40 +4,56 @@
     <div class="add-name">
       <h6 class="title-text">Name</h6>
       <mat-form-field>
-        <input matInput type="text" placeholder="Add name" />
+        <input
+          matInput
+          type="text"
+          placeholder="Add name"
+          (input)="onNameInputChange($event)"
+        />
       </mat-form-field>
     </div>
 
     <div class="add-description">
       <h6 class="title-text">Description</h6>
       <mat-form-field>
-        <input matInput type="text" placeholder="Add description" />
+        <input
+          matInput
+          type="text"
+          placeholder="Add description"
+          (input)="onDescriptionInputChange($event)"
+        />
       </mat-form-field>
     </div>
 
     <div class="add-team">
       <h6 class="title-text">Team</h6>
       <mat-form-field>
-        <input matInput type="text" placeholder="Add team" />
+        <input
+          matInput
+          type="text"
+          placeholder="Add team"
+          (input)="onTeamInputChange($event)"
+        />
       </mat-form-field>
     </div>
 
     <div class="add-date-started">
       <h6 class="title-text">Date Started</h6>
       <mat-form-field>
-        <input matInput type="text" placeholder="Add date" />
-      </mat-form-field>
-    </div>
-
-    <div class="add-date-started">
-      <h6 class="title-text">Date Started</h6>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Add date" />
+        <input
+          matInput
+          type="text"
+          placeholder="Add date"
+          (input)="onDateStartedInputChange($event)"
+        />
       </mat-form-field>
     </div>
   </div>
 
   <div class="buttons">
-    <button mat-button>Cancel</button> <button mat-button>Add user</button>
+    <button mat-button (click)="onClose()">Cancel</button>
+    <button mat-button (click)="addUser()" [disabled]="userFieldsIncomplete()">
+      Add user
+    </button>
   </div>
 </div>
