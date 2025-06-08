@@ -14,10 +14,6 @@ table {
   position: relative;
 }
 
-// .mat-header-row, .mat-row {
-//   min-height: 30px;
-// }
-
 .mat-mdc-row:hover {
   background-color: rgb(247, 246, 246);
   cursor: pointer;
@@ -35,5 +31,14 @@ mat-paginator {
   position: absolute;
   bottom: 0px;
   width: 100%;
+  background-color: #ffffff;
+}
+
+.example-container {
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.details-drawer {
   background-color: #ffffff;
 }

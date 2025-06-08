@@ -8,12 +8,19 @@
   width: 100%;
 }
 
-.task-list-wrapper{
+.task-list-wrapper {
   width: 50%;
   height: 75%;
-  // background-color: blue;
 }
 
 mat-form-field {
   width: 300px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
 }

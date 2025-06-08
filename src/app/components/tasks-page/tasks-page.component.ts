@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 export class TasksPageComponent {
   constructor(private router: Router) {}
 
+  globalFilter: string;
+
   returnToUsers(): void {
     this.router.navigate(['/users']);
   }

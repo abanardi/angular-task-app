@@ -19,6 +19,8 @@ import { Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddUserDialogComponent } from '../user-action-dialogs/add-user-dialog/add-user-dialog.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
 
 interface UserDataSource {
   id: string;
@@ -46,6 +48,8 @@ interface queryParams {
     MatSortModule,
     MatPaginatorModule,
     AddUserDialogComponent,
+    MatSidenavModule,
+    MatButtonModule,
   ],
   providers: [DatePipe],
   templateUrl: './user-table.component.html',
@@ -55,6 +59,8 @@ export class UserTableComponent
   implements OnInit, OnDestroy, AfterViewInit, OnChanges
 {
   @Input() globalFilter: string;
+  drawerOpened: boolean = false;
+  selectedUser: User;
   componentDestroyed$: Subject<boolean> = new Subject();
 
   displayedColumns = [
@@ -175,7 +181,19 @@ export class UserTableComponent
 
   clickRow(row: UserDataSource): void {
     const userId = row.id;
+    this.selectedUser = row.userResponse;
     const childRoute = 'tasks/' + userId;
+    this.drawerOpened = !this.drawerOpened;
+
+    // this.router.navigate([childRoute]);
+  }
+
+  onClose(): void {
+    this.drawerOpened = false;
+  }
+
+  viewTasks(): void {
+    const childRoute = 'tasks/' + this.selectedUser.id;
     this.router.navigate([childRoute]);
   }
 

@@ -1,66 +1,138 @@
-<div class="table-container">
-  <div class="data-table">
-    <table
-      mat-table
-      [dataSource]="dataSource"
-      matSort
-      (matSortChange)="onSort($event)"
-    >
-      <ng-container matColumnDef="id"
-        ><th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-        <td mat-cell *matCellDef="let user">{{ user.id }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="name"
-        ><th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-        <td mat-cell *matCellDef="let user">{{ user.name }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="totalTasks"
-        ><th mat-header-cell *matHeaderCellDef mat-sort-header>Total Tasks</th>
-        <td mat-cell *matCellDef="let user">{{ user.totalTasks }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="remainingTasks"
-        ><th mat-header-cell *matHeaderCellDef mat-sort-header>
-          Remaining Tasks
-        </th>
-        <td mat-cell *matCellDef="let user">
-          {{ user.remainingTasks }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Description</th>
-        <td mat-cell *matCellDef="let user">
-          {{ user.description }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="team">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Team</th>
-        <td mat-cell *matCellDef="let user">{{ user.team }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="dateStarted"
-        ><th mat-header-cell *matHeaderCellDef mat-sort-header>Date started</th>
-        <td mat-cell *matCellDef="let user">
-          {{ user.dateStarted }}
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: displayedColumns"
-        (click)="clickRow(row)"
-      ></tr>
-    </table>
-  </div>
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of periodic elements"
+<mat-drawer-container class="example-container">
+  <mat-drawer
+    class="details-drawer"
+    mode="side"
+    [opened]="drawerOpened"
+    position="end"
   >
-  </mat-paginator>
-</div>
+    <div class="view-tasks">
+      <button mat-button (click)="viewTasks()">View Tasks</button>
+    </div>
+
+    <div class="details">
+      <div>
+        <p>ID</p>
+        @if(selectedUser){
+        <p>{{ selectedUser.id }}</p>
+        }
+      </div>
+
+      <div>
+        <p>Name</p>
+        @if(selectedUser){
+        <p>{{ selectedUser.name }}</p>
+        }
+      </div>
+
+      <div>
+        <p>Total Tasks</p>
+        @if(selectedUser){
+        <p>{{ selectedUser.totalTasks }}</p>
+        }
+      </div>
+
+      <div>
+        <p>Remaining Tasks</p>
+        @if(selectedUser){
+        <p>{{ selectedUser.remainingTasks }}</p>
+        }
+      </div>
+
+      <div>
+        <p>Descriptions</p>
+        @if(selectedUser){
+        <p>{{ selectedUser.description }}</p>
+        }
+      </div>
+
+      <div>
+        <p>Team</p>
+        @if(selectedUser){
+        <p>{{ selectedUser.team }}</p>
+        }
+      </div>
+
+      <div>
+        <p>Date started</p>
+        @if(selectedUser){
+        <p>{{ selectedUser.dateStarted }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <button mat-button (click)="onClose()">Close</button>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content
+    ><div class="table-container">
+      <div class="data-table">
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          matSort
+          (matSortChange)="onSort($event)"
+        >
+          <ng-container matColumnDef="id"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+            <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="name"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="totalTasks"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Total Tasks
+            </th>
+            <td mat-cell *matCellDef="let user">{{ user.totalTasks }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="remainingTasks"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Remaining Tasks
+            </th>
+            <td mat-cell *matCellDef="let user">
+              {{ user.remainingTasks }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let user">
+              {{ user.description }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="team">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Team</th>
+            <td mat-cell *matCellDef="let user">{{ user.team }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="dateStarted"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Date started
+            </th>
+            <td mat-cell *matCellDef="let user">
+              {{ user.dateStarted }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="clickRow(row)"
+          ></tr>
+        </table>
+      </div>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator></div
+  ></mat-drawer-content>
+</mat-drawer-container>
