@@ -1,6 +1,19 @@
-<div class="task-list-container">
-  @for(task of (userTasks | async); track task){
-  <app-task-card [task]="task"></app-task-card>
+<mat-drawer-container>
+  <mat-drawer
+    class="details-drawer"
+    [opened]="drawerOpened"
+    mode="side"
+    position="end"
+  >
+    Drawer
+  </mat-drawer>
 
-  }
-</div>
+  <mat-drawer-content>
+    <div class="task-list-container">
+      @for(task of (userTasks | async); track task){
+      <app-task-card [task]="task" (click)="clickTask(task)"></app-task-card>
+
+      }
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

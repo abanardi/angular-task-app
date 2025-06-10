@@ -7,3 +7,19 @@
   // align-items: center;
   overflow: auto;
 }
+
+details-drawer {
+  height: 100%;
+}
+
+mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer {
+  background-color: azure;
+}
+
+app-task-card:hover {
+  cursor: pointer;
+}

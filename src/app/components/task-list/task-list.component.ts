@@ -9,6 +9,7 @@ import { UserTaskListService } from '../../services/user-task-list.service';
 import { OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-task-list',
@@ -19,6 +20,7 @@ import { ActivatedRoute } from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     AsyncPipe,
+    MatSidenavModule,
   ],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss',
@@ -26,11 +28,18 @@ import { ActivatedRoute } from '@angular/router';
 export class TaskListComponent implements OnInit {
   userTasks: Observable<Task[]> = of([]);
   userId: any = '';
+  drawerOpened: boolean = false;
 
   constructor(
     private userTaskListService: UserTaskListService,
     private activatedRoute: ActivatedRoute
   ) {}
+
+  clickTask(stuff: any) {
+    console.log('What the fuck');
+    console.log(stuff);
+    this.drawerOpened = !this.drawerOpened;
+  }
 
   getUserTasks() {
     this.userTasks = this.userTaskListService.getTasks();
