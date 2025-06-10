@@ -5,7 +5,44 @@
     mode="side"
     position="end"
   >
-    Drawer
+    <div class="details">
+      @if(selectedTask){
+      <div>
+        <p>ID</p>
+        <p>{{ selectedTask.id }}</p>
+      </div>
+
+      <div>
+        <p>Title</p>
+        <p>{{ selectedTask.title }}</p>
+      </div>
+
+      <div>
+        <p>Description</p>
+        <p>{{ selectedTask.description }}</p>
+      </div>
+
+      <div>
+        <p>Start Time</p>
+        <p>{{ selectedTask.startTime }}</p>
+      </div>
+
+      <div>
+        <p>End Time</p>
+        <p>{{ selectedTask.endTime }}</p>
+      </div>
+
+      <div>
+        <p>Completed</p>
+        <p>{{ selectedTask.completed }}</p>
+      </div>
+
+      }
+    </div>
+
+    <div class="drawer-footer">
+      <button mat-button (click)="onClose()">Close</button>
+    </div>
   </mat-drawer>
 
   <mat-drawer-content>

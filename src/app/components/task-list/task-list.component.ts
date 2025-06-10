@@ -29,16 +29,20 @@ export class TaskListComponent implements OnInit {
   userTasks: Observable<Task[]> = of([]);
   userId: any = '';
   drawerOpened: boolean = false;
+  selectedTask: Task | null = null;
 
   constructor(
     private userTaskListService: UserTaskListService,
     private activatedRoute: ActivatedRoute
   ) {}
 
-  clickTask(stuff: any) {
-    console.log('What the fuck');
-    console.log(stuff);
-    this.drawerOpened = !this.drawerOpened;
+  clickTask(task: Task) {
+    if (this.selectedTask === task) {
+      this.drawerOpened = !this.drawerOpened;
+    } else {
+      this.selectedTask = task;
+      this.drawerOpened = true;
+    }
   }
 
   getUserTasks() {
@@ -48,5 +52,9 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.activatedRoute.snapshot.firstChild;
     this.getUserTasks();
+  }
+
+  onClose(): void {
+    this.drawerOpened = false;
   }
 }

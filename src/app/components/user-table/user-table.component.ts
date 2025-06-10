@@ -180,12 +180,12 @@ export class UserTableComponent
   }
 
   clickRow(row: UserDataSource): void {
-    const userId = row.id;
-    this.selectedUser = row.userResponse;
-    const childRoute = 'tasks/' + userId;
-    this.drawerOpened = !this.drawerOpened;
-
-    // this.router.navigate([childRoute]);
+    if (row.userResponse === this.selectedUser) {
+      this.drawerOpened = !this.drawerOpened;
+    } else {
+      this.selectedUser = row.userResponse;
+      this.drawerOpened = true;
+    }
   }
 
   onClose(): void {
