@@ -22,7 +22,6 @@ import { AddUserDialogComponent } from '../user-action-dialogs/add-user-dialog/a
 })
 export class UsersPageComponent {
   globalFilter: string;
-  
 
   constructor(private dialog: MatDialog) {}
 
