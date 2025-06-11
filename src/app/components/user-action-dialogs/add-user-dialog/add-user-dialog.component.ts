@@ -49,11 +49,6 @@ export class AddUserDialogComponent {
   }
 
   userFieldsIncomplete() {
-    console.log(this.newName);
-    console.log(this.newDescription);
-    console.log(this.newTeam);
-    console.log(this.newDateStarted);
-    console.log('SHIT');
     const returnValue = !!(
       this.newName &&
       this.newDescription &&

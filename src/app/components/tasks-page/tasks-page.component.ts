@@ -5,7 +5,7 @@ import { TaskListComponent } from '../task-list/task-list.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';
-import { AddTaskDialogComponent } from '../../task-action-dialogs/add-task-dialog/add-task-dialog.component';
+import { AddTaskDialogComponent } from '../add-task-dialog/add-task-dialog.component';
 
 @Component({
   selector: 'app-tasks-page',

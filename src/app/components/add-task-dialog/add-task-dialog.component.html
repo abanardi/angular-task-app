@@ -1,0 +1,41 @@
+<div class="dialog-container">
+  <div class="input-field">
+    <h6>Fill task details</h6>
+
+    <div class="add-title">
+      <h6 class="title-text">Title</h6>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Add title" />
+      </mat-form-field>
+    </div>
+
+    <div class="add-description">
+      <h6 class="title-text">Description</h6>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Add description" />
+      </mat-form-field>
+    </div>
+
+    <div class="add-date-range">
+      <h6 class="title-text">Select Date Range</h6>
+      <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date" />
+          <input matEndDate placeholder="End date" />
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY - MM/DD/YYYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button mat-button (click)="onClose()">Close</button>
+    <button mat-button (click)="addTask()">Add task</button>
+  </div>
+</div>
