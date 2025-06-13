@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-// import { MatTimepickerModule } from '@angular/material/timepicker';
+import { MatTimepickerModule } from '@angular/material/timepicker';
 
 @Component({
     selector: 'app-add-task-dialog',
@@ -14,7 +14,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
         MatFormFieldModule,
         MatInputModule,
         MatDatepickerModule,
-        // MatTimepickerModule,
+        MatTimepickerModule,
     ],
     providers: [provideNativeDateAdapter()],
     templateUrl: './add-task-dialog.component.html',
