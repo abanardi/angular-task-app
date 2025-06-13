@@ -1,23 +1,27 @@
 <div class="dialog-container">
   <div class="input-field">
-    <h6>Fill task details</h6>
+    <p class="dialog-title">Fill task details</p>
 
     <div class="add-title">
-      <h6 class="title-text">Title</h6>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Add title" />
-      </mat-form-field>
+      <div class="wrapper">
+        <p class="title-text">Title</p>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Add title" />
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="add-description">
-      <h6 class="title-text">Description</h6>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Add description" />
-      </mat-form-field>
+      <div class="wrapper">
+        <p class="title-text">Description</p>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Add description" />
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="add-start-datetime">
-      <h6 class="title-text">Select start date and time</h6>
+      <p class="title-text">Select start date and time</p>
       <div class="datetime-picker-container">
         <mat-form-field class="datetime-form">
           <mat-label>Choose a date</mat-label>
@@ -37,7 +41,7 @@
     </div>
 
     <div class="add-end-datetime">
-      <h6 class="title-text">Select end date and time</h6>
+      <p class="title-text">Select end date and time</p>
       <div class="datetime-picker-container">
         <mat-form-field class="datetime-form">
           <mat-label>Choose a date</mat-label>
@@ -57,7 +61,7 @@
     </div>
 
     <!-- <div class="add-date-range">
-      <h6 class="title-text">Select Date Range</h6>
+      <p class="title-text">Select Date Range</p>
       <mat-form-field>
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
