@@ -8,17 +8,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddUserDialogComponent } from '../user-action-dialogs/add-user-dialog/add-user-dialog.component';
 
 @Component({
-  selector: 'app-users-page',
-  standalone: true,
-  imports: [
-    UserTableComponent,
-    MatInputModule,
-    MatFormFieldModule,
-    MatCardModule,
-    MatButtonModule,
-  ],
-  templateUrl: './users-page.component.html',
-  styleUrl: './users-page.component.scss',
+    selector: 'app-users-page',
+    imports: [
+        UserTableComponent,
+        MatInputModule,
+        MatFormFieldModule,
+        MatCardModule,
+        MatButtonModule,
+    ],
+    templateUrl: './users-page.component.html',
+    styleUrl: './users-page.component.scss'
 })
 export class UsersPageComponent {
   globalFilter: string;

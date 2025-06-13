@@ -8,16 +8,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddTaskDialogComponent } from '../add-task-dialog/add-task-dialog.component';
 
 @Component({
-  selector: 'app-tasks-page',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    TaskListComponent,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
-  templateUrl: './tasks-page.component.html',
-  styleUrl: './tasks-page.component.scss',
+    selector: 'app-tasks-page',
+    imports: [
+        MatButtonModule,
+        TaskListComponent,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
+    templateUrl: './tasks-page.component.html',
+    styleUrl: './tasks-page.component.scss'
 })
 export class TasksPageComponent {
   constructor(private router: Router, private dialog: MatDialog) {}

@@ -12,18 +12,17 @@ import { ActivatedRoute } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-task-list',
-  standalone: true,
-  imports: [
-    TaskCardComponent,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    AsyncPipe,
-    MatSidenavModule,
-  ],
-  templateUrl: './task-list.component.html',
-  styleUrl: './task-list.component.scss',
+    selector: 'app-task-list',
+    imports: [
+        TaskCardComponent,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        AsyncPipe,
+        MatSidenavModule,
+    ],
+    templateUrl: './task-list.component.html',
+    styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent implements OnInit {
   userTasks: Observable<Task[]> = of([]);

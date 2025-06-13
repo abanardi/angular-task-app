@@ -5,11 +5,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-add-user-dialog',
-  standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule],
-  templateUrl: './add-user-dialog.component.html',
-  styleUrl: './add-user-dialog.component.scss',
+    selector: 'app-add-user-dialog',
+    imports: [MatFormFieldModule, MatInputModule, MatButtonModule],
+    templateUrl: './add-user-dialog.component.html',
+    styleUrl: './add-user-dialog.component.scss'
 })
 export class AddUserDialogComponent {
   newName: string = '';

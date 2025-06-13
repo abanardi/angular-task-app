@@ -8,18 +8,17 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 // import { MatTimepickerModule } from '@angular/material/timepicker';
 
 @Component({
-  selector: 'app-add-task-dialog',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    // MatTimepickerModule,
-  ],
-  providers: [provideNativeDateAdapter()],
-  templateUrl: './add-task-dialog.component.html',
-  styleUrl: './add-task-dialog.component.scss',
+    selector: 'app-add-task-dialog',
+    imports: [
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        // MatTimepickerModule,
+    ],
+    providers: [provideNativeDateAdapter()],
+    templateUrl: './add-task-dialog.component.html',
+    styleUrl: './add-task-dialog.component.scss'
 })
 export class AddTaskDialogComponent {
   newTitle: string = '';

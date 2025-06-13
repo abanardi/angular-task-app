@@ -40,20 +40,19 @@ interface queryParams {
 }
 
 @Component({
-  selector: 'app-user-table',
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    AddUserDialogComponent,
-    MatSidenavModule,
-    MatButtonModule,
-  ],
-  providers: [DatePipe],
-  templateUrl: './user-table.component.html',
-  styleUrl: './user-table.component.scss',
+    selector: 'app-user-table',
+    imports: [
+        AsyncPipe,
+        MatTableModule,
+        MatSortModule,
+        MatPaginatorModule,
+        AddUserDialogComponent,
+        MatSidenavModule,
+        MatButtonModule,
+    ],
+    providers: [DatePipe],
+    templateUrl: './user-table.component.html',
+    styleUrl: './user-table.component.scss'
 })
 export class UserTableComponent
   implements OnInit, OnDestroy, AfterViewInit, OnChanges
