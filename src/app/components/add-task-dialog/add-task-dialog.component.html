@@ -16,7 +16,47 @@
       </mat-form-field>
     </div>
 
-    <div class="add-date-range">
+    <div class="add-start-datetime">
+      <h6 class="title-text">Select start date and time</h6>
+      <div class="datetime-picker-container">
+        <mat-form-field class="datetime-form">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="startDatePicker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="startDatePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="datetime-form">
+          <mat-label>Pick a time</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="add-end-datetime">
+      <h6 class="title-text">Select end date and time</h6>
+      <div class="datetime-picker-container">
+        <mat-form-field class="datetime-form">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="endDatePicker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="endDatePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="datetime-form">
+          <mat-label>Choose a time</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- <div class="add-date-range">
       <h6 class="title-text">Select Date Range</h6>
       <mat-form-field>
         <mat-label>Enter a date range</mat-label>
@@ -31,7 +71,7 @@
         ></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
-    </div>
+    </div> -->
   </div>
 
   <div class="buttons">
